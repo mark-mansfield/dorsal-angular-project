@@ -1,7 +1,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.85rem;
-  background:url(/dorsal/assets/pexels-photo-932638.jpeg) top/cover no-repeat border-box,
+  background:url(./app/images/pexels-photo-932638.jpeg) top/cover no-repeat border-box,
   rgb(43, 39, 39) top;
   background-attachment: fixed;
   width: 100%;
