@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: content-box
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.85rem;
@@ -8,3 +15,41 @@ body {
   height: 100%;
   color: white;
 }
+
+.backdrop {
+  display: block;
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.button {
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+  border: rgba(4, 236, 101, 0.1) solid 2px;
+}
+
+.button:hover {
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(39, 38, 38, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+  border: rgba(4, 236, 101, 0.1) solid 2px;
+}
+
+
+
