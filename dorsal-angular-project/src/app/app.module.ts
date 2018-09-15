@@ -16,8 +16,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    CountriesComponent,
-    SharkDataComponent
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
