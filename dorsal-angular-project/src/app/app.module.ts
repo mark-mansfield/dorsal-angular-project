@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
-
+import { SharkDataComponent } from './shark-data/shark-data.component';
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   // route path   , comopnet to load
   { path : '' , component: HomeComponent },
@@ -16,11 +17,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    CountriesComponent
+    CountriesComponent,
+    SharkDataComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

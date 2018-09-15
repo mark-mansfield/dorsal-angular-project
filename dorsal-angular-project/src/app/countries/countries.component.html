@@ -1,9 +1,8 @@
 <section class="main__content-panel">
 <h1>Countries in the Dorsal System</h1>
 <div *ngIf='countries.length > 0'>
-  <div *ngFor="let country of countries" id="{{country}}" class="button">
+  <div *ngFor="let country of countries" id="{{country}}" (click)="setCountry(country)" class="button">
     {{country}}
-
   </div>
 </div>
 </section>
