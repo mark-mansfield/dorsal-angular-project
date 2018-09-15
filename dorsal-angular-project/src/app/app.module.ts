@@ -9,7 +9,8 @@ import { StatesListComponent } from './states-list/states-list.component';
 const appRoutes: Routes = [
   // route path   , comopnet to load
   { path : '' , component: HomeComponent },
-  { path : 'countries' , component: CountriesComponent }
+  { path : 'countries' , component: CountriesComponent },
+  { path : 'list-states' , component: StatesListComponent }
 ];
 
 

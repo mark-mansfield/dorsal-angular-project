@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CountriesService } from './countries.service';
 import { Subscription } from 'rxjs';
 import { Country } from './countries.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.component.html',
@@ -10,7 +10,7 @@ import { Country } from './countries.model';
 })
 export class CountriesComponent implements OnInit , OnDestroy {
 
-  constructor(public dataService: CountriesService) { }
+  constructor(public dataService: CountriesService,  private router: Router) { }
   countries = [];
   private countriesSub: Subscription;
 
@@ -30,5 +30,6 @@ export class CountriesComponent implements OnInit , OnDestroy {
     const sharkData = JSON.parse(localStorage.getItem('shark-data'));
     sharkData[0].country = country;
     localStorage.setItem('shark-data' , JSON.stringify(sharkData));
+    this.router.navigate(['/list-states']);
   }
 }
