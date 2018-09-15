@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StatesListComponent } from './states-list/states-list.component';
 const appRoutes: Routes = [
   // route path   , comopnet to load
   { path : '' , component: HomeComponent },
@@ -16,7 +17,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    CountriesComponent
+    CountriesComponent,
+    StatesListComponent
   ],
   imports: [
     BrowserModule,
