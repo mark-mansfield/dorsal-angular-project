@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StatesListComponent } from './states-list/states-list.component';
 import { ZonesListComponent } from './zones-list/zones-list.component';
 import { LocationsListComponent } from './locations-list/locations-list.component';
+import { ReportsListComponent } from './reports-list/reports-list.component';
 
 const appRoutes: Routes = [
   // route path   , comopnet to load
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     CountriesComponent,
     StatesListComponent,
     ZonesListComponent,
-    LocationsListComponent
+    LocationsListComponent,
+    ReportsListComponent
   ],
   imports: [
     BrowserModule,
