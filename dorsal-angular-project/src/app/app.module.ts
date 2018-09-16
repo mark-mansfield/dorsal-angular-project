@@ -6,11 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StatesListComponent } from './states-list/states-list.component';
+import { ZonesListComponent } from './zones-list/zones-list.component';
+
 const appRoutes: Routes = [
   // route path   , comopnet to load
   { path : '' , component: HomeComponent },
   { path : 'countries' , component: CountriesComponent },
-  { path : 'list-states' , component: StatesListComponent }
+  { path : 'list-states' , component: StatesListComponent },
+  { path : 'list-zones' , component: ZonesListComponent }
 ];
 
 
@@ -19,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     CountriesComponent,
-    StatesListComponent
+    StatesListComponent,
+    ZonesListComponent
   ],
   imports: [
     BrowserModule,
