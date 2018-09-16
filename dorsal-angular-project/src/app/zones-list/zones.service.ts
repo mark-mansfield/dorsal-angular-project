@@ -17,8 +17,7 @@ export class ZonesDataService {
 
 
   getZones (country, selectedState) {
-    console.log(country);
-    console.log(selectedState);
+
     const state = {
         state: selectedState
     };
@@ -26,7 +25,6 @@ export class ZonesDataService {
       .subscribe((zonesData) => {
 
         const data = zonesData.zones;
-        console.log(zonesData);
 
         this.zonesUpdated.next([...data]);
 

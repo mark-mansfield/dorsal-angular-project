@@ -94,5 +94,30 @@ app.post('/api/list-zones' , (req,res, body) => {
   });
 });
 
+
+app.post('/api/list-locations' , (req,res, body) => {
+
+  // drill down using country , state , zone
+
+  request.get(config.apiUrl + '/surfspot/location/' + req.body.country  + '/' + req.body.state.name + '/' + req.body.zone + '/' + config.publicKey , (error, response, body) => {
+
+
+    if (error) {
+      return console.dir(error);
+    }
+
+
+    const returnData = [JSON.parse(body)];
+    const zones = returnData[0].responseData;
+
+
+    res.status(200).json({
+      message : `Reporting Locations for ${req.body.zone} in ${req.body.state.name }`,
+      zones: zones
+    });
+  });
+});
+
+
 module.exports = app;
 

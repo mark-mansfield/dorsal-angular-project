@@ -36,8 +36,9 @@ export class ZonesListComponent implements OnInit , OnDestroy {
 
   // so we can access this variable
   onSetZone(zone) {
+
     this.sharkData[0].zone = zone;
     localStorage.setItem('shark-data' , JSON.stringify(this.sharkData));
-    this.router.navigate(['/list-zones']);
+    this.router.navigate(['/list-locations']);
   }
 }

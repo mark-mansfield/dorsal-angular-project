@@ -1,5 +1,5 @@
 <section class="main__content-panel">
-  <h1>States for {{ sharkData[0].country }}</h1>
+  <h1>Reporting states > {{ sharkData[0].country }}</h1>
   <div *ngIf='states.length > 0'>
     <div *ngFor="let state of states" id="{{state.name}}" (click)="setState(state)" class="button">
       {{state.name}}
