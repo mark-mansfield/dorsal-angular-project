@@ -16,7 +16,8 @@ const appRoutes: Routes = [
   { path : 'countries' , component: CountriesComponent },
   { path : 'list-states' , component: StatesListComponent },
   { path : 'list-zones' , component: ZonesListComponent },
-  { path : 'list-locations' , component: LocationsListComponent }
+  { path : 'list-locations' , component: LocationsListComponent },
+  { path : 'list-reports' , component: ReportsListComponent }
 ];
 
 

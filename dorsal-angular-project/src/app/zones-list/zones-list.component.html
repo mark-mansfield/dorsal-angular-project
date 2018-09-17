@@ -1,7 +1,7 @@
 <section class="main__content-panel">
   <h1>Reporting zones >  {{ sharkData[0].country }} > {{ sharkData[0].state.name }}</h1>
   <div *ngIf='zones.length > 0'>
-    <div *ngFor="let zone of zones"  (click)="onSetZone(zone)" class="button">
+    <div *ngFor="let zone of zones"  (click)="onSetZone(zone)" class="button blue hvr-ripple-out">
       {{zone}}
     </div>
   </div>

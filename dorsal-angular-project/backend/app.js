@@ -49,18 +49,15 @@ app.use('' , (req,res,next) => {
 
 
 app.post('/api/list-states' , (req,res,body) => {
-  console.log(config.apiUrl + '/' + req.body.name + '/states')
-  request.get(config.apiUrl + '/' + req.body.name + '/states', (error, response, body) => {
 
+  request.get(config.apiUrl + '/' + req.body.name + '/states', (error, response, body) => {
 
     if (error) {
       return console.dir(error);
     }
 
-
     const returnData = [JSON.parse(body)];
     const states = returnData[0].responseData;
-
 
     res.status(200).json({
       message : `States for ${req.body.name }`,
@@ -72,20 +69,14 @@ app.post('/api/list-states' , (req,res,body) => {
 
 app.post('/api/list-zones' , (req,res, body) => {
 
-
-
-
   request.get(config.apiUrl + '/surfspot/zone/' + req.body.state.country + '/' + req.body.state.name + '/'  + config.publicKey , (error, response, body) => {
-
 
     if (error) {
       return console.dir(error);
     }
 
-
     const returnData = [JSON.parse(body)];
     const zones = returnData[0].responseData;
-
 
     res.status(200).json({
       message : `Zones for ${req.body.state.name }`,
@@ -97,27 +88,90 @@ app.post('/api/list-zones' , (req,res, body) => {
 
 app.post('/api/list-locations' , (req,res, body) => {
 
+
   // drill down using country , state , zone
-
   request.get(config.apiUrl + '/surfspot/location/' + req.body.country  + '/' + req.body.state.name + '/' + req.body.zone + '/' + config.publicKey , (error, response, body) => {
-
 
     if (error) {
       return console.dir(error);
     }
-
-
     const returnData = [JSON.parse(body)];
-    const zones = returnData[0].responseData;
-
+    const locations = returnData[0].responseData;
 
     res.status(200).json({
       message : `Reporting Locations for ${req.body.zone} in ${req.body.state.name }`,
-      zones: zones
+      locations: locations
     });
   });
 });
 
+app.post('/api/list-reports' , (req,res, body) => {
+
+  const jsonBody = {};
+  jsonBody.state = req.body.state
+  jsonBody.zone = req.body.zone
+  jsonBody.location = req.body.location
+  jsonBody.publicKey = config.publicKey;
+  jsonBody.pageSize = 20; //items return per call
+  jsonBody.pageIndex = 0; //page index
+
+
+  request.post({
+    url: config.apiUrl + '/report/list',
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: JSON.parse(JSON.stringify(jsonBody))
+    },
+    (error, response, body) => {
+      if (error) {
+        return console.dir(error);
+      }
+      // const returnData = [JSON.parse(response.body)];
+      const returnData = response.body;
+      const reports = returnData;
+
+      res.status(200).json({
+        message : `Reports`,
+        reports: reports
+      });
+  });
+  // console.log(req.body.country);
+  // console.log(req.body.state);
+  // console.log(req.body.zone);
+  // console.log(req.body.location);
+
+
+  // const jsonBody = {};
+  // jsonBody.state = req.body.state
+  // jsonBody.zone = req.body.zone
+  // jsonBody.location = req.body.location
+  // jsonBody.publicKey = config.publicKey;
+  // jsonBody.pageSize = 20; //items return per call
+  // jsonBody.pageIndex = 0; //page index
+
+  // console.log(requestBody);
+  //  ? we asend the body of the request here
+  //  ? send as a string
+  // ? set http headers  for content type and respons type
+
+  // drill down using country , state , zone, location
+  // config.apiUrl + '/report/list'
+
+  // request.post(config.apiUrl + '/report/list' , JSON.stringify(requestBody))
+  // request.post(config.apiUrl + '/report/list' + req.body.country  + '/' + req.body.state.name + '/' + req.body.zone + '/' + config.publicKey , (error, response, body) => {
+
+  //   if (error) {
+  //     return console.dir(error);
+  //   }
+  //   const returnData = [JSON.parse(body)];
+  //   const zones = returnData[0].responseData;
+
+  //   res.status(200).json({
+  //     message : `Reporting Locations for ${req.body.zone} in ${req.body.state.name }`,
+  //     zones: zones
+  //   });
+  // });
+});
 
 module.exports = app;
 

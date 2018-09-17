@@ -1,3 +1,14 @@
-<p>
-  reports-list works!
-</p>
+<section class="main__content-panel">
+  <div class="live-data" *ngIf='reports.length > 0'>
+  <h1>Shark reports > {{ sharkData[0].country }} > {{ sharkData[0].state.name }} > {{ sharkData[0].zone }} > {{
+    sharkData[0].location }}</h1>
+    <div *ngFor="let report of reports" class="report-container">
+        <div class="report-container" id="25/08/2018 17:20">
+          <div class="report-data-link">{{ report.formattedReportTime }} </div>
+          <div class="report-info">{{ report.comment }}</div>
+          <div class="report-info"> Shark Type : {{ report.sharkType }}</div>
+          <div class="report-info">Shark length : {{ report.sharkLength }}</div>
+        </div>
+    </div>
+  </div>
+</section>

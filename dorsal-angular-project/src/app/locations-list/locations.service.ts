@@ -23,12 +23,12 @@ export class LocationsDataService {
         state: selectedState,
         zone: zone
     };
+
     this.http.post<{message: string, locations: any}>('http://localhost:3000/api/list-locations' , httpBody)
       .subscribe((locationsData) => {
         console.log(locationsData);
-        const data = locationsData.zones;
+        const data = locationsData.locations;
         this.locationsUpdated.next([...data]);
-
       });
   }
 }

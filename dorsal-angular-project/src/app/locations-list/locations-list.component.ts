@@ -32,9 +32,10 @@ export class LocationsListComponent implements OnInit , OnDestroy {
     this.locationsSub.unsubscribe();
   }
 
-  onSetLocation(loaction) {
-    this.sharkData[0].loaction = location;
+  onSetLocation(location) {
+    console.log('location set to : ' + location);
+    this.sharkData[0].location = location;
     localStorage.setItem('shark-data', JSON.stringify(this.sharkData));
-    this.router.navigate(['/list-locations']);
+    this.router.navigate(['/list-reports']);
   }
 }
