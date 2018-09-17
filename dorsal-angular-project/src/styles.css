@@ -346,7 +346,6 @@ I grafted this because I didnt want the rest of the library or to need a node_mo
 
 .hvr-ripple-out {
   display: block;
-  vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
