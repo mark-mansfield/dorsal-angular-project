@@ -1,14 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AngularMaterialModule } from './angular-material';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
-import { HttpClientModule } from '@angular/common/http';
 import { StatesListComponent } from './states-list/states-list.component';
 import { ZonesListComponent } from './zones-list/zones-list.component';
 import { LocationsListComponent } from './locations-list/locations-list.component';
 import { ReportsListComponent } from './reports-list/reports-list.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   // route path   , comopnet to load
@@ -29,12 +34,15 @@ const appRoutes: Routes = [
     StatesListComponent,
     ZonesListComponent,
     LocationsListComponent,
-    ReportsListComponent
+    ReportsListComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
